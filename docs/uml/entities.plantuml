@@ -1,0 +1,19 @@
+@startuml entities
+
+entity Metadata {
+    type : MetadataType
+    value : String
+}
+
+enum MetadataType {
+    FIRST_NAME
+    LAST_NAME
+    ROLE
+    PHONE_NUMBER
+    EMAIL
+    LOCATION
+}
+
+Metadata *-- MetadataType
+
+@enduml

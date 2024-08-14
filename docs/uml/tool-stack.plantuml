@@ -1,0 +1,24 @@
+@startuml tool-stack
+
+database "SQLite" as db
+
+package "Personal profile page" {
+
+    component [Next.js] as next
+    component [Prisma] as prisma
+
+    next -- prisma
+
+    note right of next
+        Web application framework
+    end note
+
+    note right of prisma
+        ORM and
+        database access
+    end note
+}
+
+prisma -- db
+
+@enduml
