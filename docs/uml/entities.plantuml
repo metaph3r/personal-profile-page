@@ -3,6 +3,7 @@
 entity Metadata {
     type : MetadataType
     value : String
+    display_name : String
 }
 
 enum MetadataType {

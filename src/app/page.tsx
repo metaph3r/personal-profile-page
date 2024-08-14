@@ -1,6 +1,7 @@
 import prisma from "@/lib/db";
+import Link from "next/link";
 
-export default async function Home() {
+export default async function Page() {
   const metadata = await prisma.metadata.findMany();
 
   return (
@@ -22,6 +23,7 @@ export default async function Home() {
           ))}
         </tbody>
       </table>
+      <Link href={"/admin"}>Update metadata</Link>
     </main>
   );
 }
