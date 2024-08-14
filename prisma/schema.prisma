@@ -11,6 +11,7 @@ datasource db {
 }
 
 model Metadata {
-  key   String @id
-  value String
+  key          String  @id
+  display_name String
+  value        String?
 }
