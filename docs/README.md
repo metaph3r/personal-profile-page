@@ -4,6 +4,10 @@ The diagrams were created using [PlantUML](https://plantuml.com/).
 
 ![Use cases](/docs/uml/out/use-cases.png "Use cases")
 
+## Entity model
+
+![Entity model](/docs/uml/out/entities.png "Entity model")
+
 ## Tool stack
 
 The following tools are used in the project.
