@@ -1,0 +1,10 @@
+@startuml use-cases
+left to right direction
+
+actor Administrator as Admin
+
+package Administration {
+    Admin --> (Update metadata)
+}
+
+@enduml
