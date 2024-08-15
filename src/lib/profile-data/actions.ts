@@ -1,5 +1,6 @@
 "use server";
 
+import { ProfileData } from "@prisma/client";
 import prisma from "../db";
 import { ProfileDataType } from "./ProfileDataType";
 
@@ -22,4 +23,10 @@ export async function updateMetadata(formData: FormData) {
   await prisma.profileData.update(
     getUpdateArgs(formData, ProfileDataType.Email)
   );
+}
+
+export async function getByKey(
+  key: ProfileDataType
+): Promise<ProfileData | null> {
+  return await prisma.profileData.findFirst({ where: { key } });
 }

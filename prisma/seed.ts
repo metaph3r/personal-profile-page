@@ -14,6 +14,14 @@ const initialMetadata: Prisma.ProfileDataCreateInput[] = [
     key: "EMAIL",
     display_name: "Email address",
   },
+  {
+    key: "ROLE",
+    display_name: "Role",
+  },
+  {
+    key: "LOCATION",
+    display_name: "Location",
+  },
 ];
 
 async function main() {

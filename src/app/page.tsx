@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import Link from "next/link";
 
 export default async function Page() {
-  const metadata = await prisma.metadata.findMany();
+  const profileData = await prisma.profileData.findMany();
 
   return (
     <main className="flex flex-col items-center gap-y-5 pt-24 text-center">
@@ -15,10 +15,10 @@ export default async function Page() {
           </tr>
         </thead>
         <tbody>
-          {metadata.map((metadata) => (
-            <tr key={metadata.key}>
-              <td>{metadata.key}</td>
-              <td className="text-left">{metadata.value}</td>
+          {profileData.map((data) => (
+            <tr key={data.key}>
+              <td>{data.key}</td>
+              <td className="text-left">{data.value}</td>
             </tr>
           ))}
         </tbody>

@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="grid grid-flow-col grid-cols-[12rem_1fr] h-screen">
           <div className="p-2">Navbar</div>
-          <div className="grid grid-flow-row grid-rows-[6rem_1fr_4rem]">
+          <div className="grid grid-flow-row grid-rows-[max-content_1fr_4rem]">
             <div className="p-2">
               <Header />
             </div>
