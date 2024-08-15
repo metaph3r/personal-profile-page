@@ -1,12 +1,12 @@
 import prisma from "@/lib/db";
-import { updateMetadata } from "@/lib/metadata/actions";
-import { MetadataType } from "@/lib/metadata/MetadataType";
+import { updateMetadata } from "@/lib/profile-data/actions";
+import { ProfileDataType } from "@/lib/profile-data/ProfileDataType";
 import Link from "next/link";
 
 export default async function Page() {
-  const metadata = await prisma.metadata.findMany();
+  const metadata = await prisma.profileData.findMany();
 
-  function getMetadataRow(key: MetadataType) {
+  function getMetadataRow(key: ProfileDataType) {
     const rowMetadata = metadata.find((x) => x.key === key);
 
     return (
@@ -31,9 +31,9 @@ export default async function Page() {
         <form className="my-4" action={updateMetadata}>
           <table className="border-separate border-spacing-2 border-0">
             <tbody>
-              {getMetadataRow(MetadataType.FirstName)}
-              {getMetadataRow(MetadataType.LastName)}
-              {getMetadataRow(MetadataType.Email)}
+              {getMetadataRow(ProfileDataType.FirstName)}
+              {getMetadataRow(ProfileDataType.LastName)}
+              {getMetadataRow(ProfileDataType.Email)}
             </tbody>
           </table>
           <button

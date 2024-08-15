@@ -1,8 +1,7 @@
-import { MetadataType } from "@/lib/metadata/MetadataType";
 import { Prisma, PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-const initialMetadata: Prisma.MetadataCreateInput[] = [
+const initialMetadata: Prisma.ProfileDataCreateInput[] = [
   {
     key: "FIRST_NAME",
     display_name: "First name",
@@ -21,11 +20,11 @@ async function main() {
   console.log("Start seeding...");
 
   for (const metadata of initialMetadata) {
-    const newEntry = await prisma.metadata.create({
+    const newEntry = await prisma.profileData.create({
       data: metadata,
     });
 
-    console.log(`Created metadata entry: ${newEntry}`);
+    console.log(`Created metadata entry: ${newEntry.key}`);
   }
 
   console.log("Seeding finished.");

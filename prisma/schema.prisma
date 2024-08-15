@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Metadata {
+model ProfileData {
   key          String  @id
   display_name String
   value        String?
