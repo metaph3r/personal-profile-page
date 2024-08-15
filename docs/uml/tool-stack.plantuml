@@ -6,17 +6,10 @@ package "Personal profile page" {
 
     component [Next.js] as next
     component [Prisma] as prisma
+    component [Tailwind CSS] as tailwind
 
     next -- prisma
-
-    note right of next
-        Web application framework
-    end note
-
-    note right of prisma
-        ORM and
-        database access
-    end note
+    next - tailwind
 }
 
 prisma -- db

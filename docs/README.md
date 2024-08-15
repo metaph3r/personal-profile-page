@@ -14,5 +14,6 @@ The following tools are used in the project.
 
 - [Next.js](https://nextjs.org/)
 - [Prisma](https://www.prisma.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ![Tool stack](/docs/uml/out/tool-stack.png "Tool stack")
