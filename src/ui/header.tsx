@@ -8,6 +8,44 @@ import {
 import { getByKey } from "@/actions/profile-data";
 import { ProfileDataType } from "@/lib/definitions";
 import Link from "next/link";
+import { verifySession } from "@/lib/session";
+import { logout } from "@/actions/auth";
+
+async function AuthButtons() {
+  const verifiedSession = await verifySession();
+
+  if (verifiedSession.isAuth) {
+    return (
+      <form action={logout}>
+        <button
+          type="submit"
+          className="ml-3 inline-flex items-center rounded-md bg-red-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        >
+          <UserCircleIcon
+            aria-hidden="true"
+            className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
+          />
+          Logout
+        </button>
+      </form>
+    );
+  } else {
+    return (
+      <Link href={"/login"}>
+        <button
+          type="button"
+          className="ml-3 inline-flex items-center rounded-md bg-green-300 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        >
+          <UserCircleIcon
+            aria-hidden="true"
+            className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
+          />
+          Login
+        </button>
+      </Link>
+    );
+  }
+}
 
 export default async function Header() {
   const firstName = await getByKey(ProfileDataType.FirstName);
@@ -63,18 +101,7 @@ export default async function Header() {
           />
           Edit
         </button>
-        <Link href={"/login"}>
-          <button
-            type="button"
-            className="ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >
-            <UserCircleIcon
-              aria-hidden="true"
-              className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
-            />
-            Login
-          </button>
-        </Link>
+        <AuthButtons />
       </div>
     </div>
   );

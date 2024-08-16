@@ -1,3 +1,5 @@
+"use server";
+
 import { ProfileData } from "@prisma/client";
 import prisma from "@/lib/db";
 import { ProfileDataType } from "@/lib/definitions";
@@ -11,7 +13,7 @@ function getUpdateArgs(formData: FormData, metadataType: ProfileDataType) {
   };
 }
 
-export async function updateMetadata(formData: FormData) {
+export async function updateProfileData(formData: FormData) {
   await prisma.profileData.update(
     getUpdateArgs(formData, ProfileDataType.FirstName)
   );

@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
-import { updateMetadata } from "@/lib/profile-data/actions";
-import { ProfileDataType } from "@/lib/profile-data/ProfileDataType";
+import { updateProfileData } from "@/actions/profile-data";
+import { ProfileDataType } from "@/lib/definitions";
 import Link from "next/link";
 
 export default async function Page() {
@@ -28,7 +28,7 @@ export default async function Page() {
     <main>
       <div className="flex justify-center">
         <h1>Edit metadata</h1>
-        <form className="my-4" action={updateMetadata}>
+        <form className="my-4" action={updateProfileData}>
           <table className="border-separate border-spacing-2 border-0">
             <tbody>
               {getMetadataRow(ProfileDataType.FirstName)}
