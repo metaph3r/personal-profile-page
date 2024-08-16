@@ -5,8 +5,8 @@ import {
   EnvelopeOpenIcon,
   UserCircleIcon,
 } from "@heroicons/react/20/solid";
-import { getByKey } from "@/lib/profile-data/actions";
-import { ProfileDataType } from "@/lib/profile-data/ProfileDataType";
+import { getByKey } from "@/actions/profile-data";
+import { ProfileDataType } from "@/lib/definitions";
 import Link from "next/link";
 
 export default async function Header() {

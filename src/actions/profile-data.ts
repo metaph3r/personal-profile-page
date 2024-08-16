@@ -1,8 +1,6 @@
-"use server";
-
 import { ProfileData } from "@prisma/client";
-import prisma from "../db";
-import { ProfileDataType } from "./ProfileDataType";
+import prisma from "@/lib/db";
+import { ProfileDataType } from "@/lib/definitions";
 
 function getUpdateArgs(formData: FormData, metadataType: ProfileDataType) {
   return {
