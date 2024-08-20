@@ -1,8 +1,9 @@
-import prisma from "@/lib/db";
+import { ProfileData } from "@/entity/ProfileData";
+import { AppDataSource } from "@/lib/data-source";
 import Link from "next/link";
 
 export default async function Page() {
-  const profileData = await prisma.profileData.findMany();
+  const profileData = await AppDataSource.getRepository(ProfileData).find();
 
   return (
     <main className="flex flex-col items-center gap-y-5 pt-24 text-center">

@@ -1,10 +1,11 @@
-import prisma from "@/lib/db";
 import { updateProfileData } from "@/actions/profile-data";
 import { ProfileDataType } from "@/lib/definitions";
 import Link from "next/link";
+import { AppDataSource } from "@/lib/data-source";
+import { ProfileData } from "@/entity/ProfileData";
 
 export default async function Page() {
-  const metadata = await prisma.profileData.findMany();
+  const metadata = await AppDataSource.getRepository(ProfileData).find();
 
   function getMetadataRow(key: ProfileDataType) {
     const rowMetadata = metadata.find((x) => x.key === key);

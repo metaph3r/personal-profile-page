@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/ui/header";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <div className="grid grid-flow-col grid-cols-[12rem_1fr] h-screen">
           <div className="p-2">Navbar</div>
           <div className="grid grid-flow-row grid-rows-[max-content_1fr_4rem]">
