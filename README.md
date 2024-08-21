@@ -6,9 +6,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Copy `.env.template` to `.env` and set configuration accordingly
-2. Run `npm install`
-3. Run `npx prisma db push` to create the database
+1. copy `.env.template` to `.env` and set configuration accordingly
+2. run `npm install`
+3. run `npx prisma db push` to create the database
 
 Afterwards, run the development server:
 
@@ -27,6 +27,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## docker-compose
+
+1. create `postgres-password.txt` in `prisma` folder and enter a password
+2. run `docker-compose up` to start database
 
 ## Documentation
 

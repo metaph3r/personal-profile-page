@@ -1,0 +1,17 @@
+name: personal-profile-page
+
+secrets:
+  postgres-passwd:
+    file: ./prisma/postgres-passwd.txt
+
+services:
+  db:
+    image: postgres:16.4-bookworm
+    restart: always
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    secrets:
+      - postgres-passwd
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-passwd

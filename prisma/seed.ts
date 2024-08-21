@@ -4,22 +4,27 @@ const prisma = new PrismaClient();
 const initialMetadata: Prisma.ProfileDataCreateInput[] = [
   {
     key: "FIRST_NAME",
+    value: "Max",
     display_name: "First name",
   },
   {
     key: "LAST_NAME",
+    value: "Mustermann",
     display_name: "Last name",
   },
   {
     key: "EMAIL",
+    value: "max.mustermann@example.com",
     display_name: "Email address",
   },
   {
     key: "ROLE",
+    value: "Web Developer",
     display_name: "Role",
   },
   {
     key: "LOCATION",
+    value: "Dresden, Germany",
     display_name: "Location",
   },
 ];
