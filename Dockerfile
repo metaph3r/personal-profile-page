@@ -17,10 +17,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Generate Prisma client
-ENV DATABASE_URL="file:./dev.db"
-RUN npx prisma db push
+RUN npx prisma generate
 
 # Perform build
+ENV DATABASE_URL="postgresql://localhost"
 RUN npm run build
 
 # Production image, copy all the files and run next
@@ -48,7 +48,6 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV DATABASE_URL="file:./dev.db"
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
