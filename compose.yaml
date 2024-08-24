@@ -5,7 +5,7 @@ secrets:
     file: ./prisma/postgres-passwd.txt
 
 services:
-  db:
+  postgres:
     image: postgres:16.4-bookworm
     restart: always
     shm_size: 128mb
