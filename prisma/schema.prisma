@@ -15,3 +15,16 @@ model ProfileData {
   display_name String
   value        String?
 }
+
+enum ContentType {
+  BIO
+  CERTIFICATE
+}
+
+model Content {
+  id        String      @id @default(cuid())
+  text      String
+  type      ContentType
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}

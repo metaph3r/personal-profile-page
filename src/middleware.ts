@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { decrypt } from "@/lib/session";
 import { cookies } from "next/headers";
 
-const protectedRoutes = ["/admin"];
+const protectedRoutes = ["/admin", "/edit"];
 
 export default async function middleware(req: NextRequest) {
   const cookie = cookies().get("session")?.value;

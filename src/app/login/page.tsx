@@ -28,6 +28,7 @@ export default function Login() {
                 />
               </div>
             </div>
+            {state?.errors?.username && <p>{state.errors.username}</p>}
           </div>
         </div>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-72">
@@ -48,11 +49,22 @@ export default function Login() {
                 />
               </div>
             </div>
+            {state?.errors?.password && (
+              <div>
+                <p>Password must:</p>
+                <ul>
+                  {state.errors.password.map((error) => (
+                    <li key={error}>- {error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
         {state?.message && <p className="mt-2 text-red-600">{state.message}</p>}
         <div className="mt-5 grid grid-cols-1 items-center place-items-center">
           <button
+            aria-disabled={pending}
             type="submit"
             className="ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
           >

@@ -29,6 +29,11 @@ const initialMetadata: Prisma.ProfileDataCreateInput[] = [
   },
 ];
 
+const bio: Prisma.ContentCreateInput = {
+  text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+  type: "BIO",
+};
+
 async function main() {
   console.log("Start seeding...");
 
@@ -39,6 +44,8 @@ async function main() {
 
     console.log(`Created metadata entry: ${newEntry.key}`);
   }
+
+  prisma.content.create({ data: bio });
 
   console.log("Seeding finished.");
 }
